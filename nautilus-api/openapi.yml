@@ -1,0 +1,104 @@
+openapi: "3.0.1"
+
+info:
+  title: "Nautilus-API"
+  description: "API to support all of the Nautilus Operations."
+  version: "v1"
+  contact:
+    name: "David Morales"
+    email: "morales.david1997@gmail.com"
+
+servers:
+  - url: http://localhost:8080/api
+    description: "Local"
+
+paths:
+  /budgets:
+    get:
+      summary: "Returns all budgets"
+      tags:
+        - "budget"
+      responses:
+        '200':
+          description: 'A list of budgets,'
+          content:
+            'application/json':
+              schema:
+                type: array
+                items:
+                  '$ref': '#/components/schemas/Budget'
+    post:
+      summary: "Creates a budget"
+      tags:
+        - "budget"
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              "$ref": "#/components/schemas/Budget"
+      responses:
+        '201':
+          description: "Created Budget."
+          content:
+            'application/json':
+              schema:
+                "$ref": "#/components/schemas/Budget"
+  /budgets/{id}:
+    get:
+      summary: "Find a budget by ID"
+      tags:
+        - "budget"
+      responses:
+        '200':
+          description: "A Budget"
+          content:
+            'application/json':
+              schema:
+                "$ref": "#/components/schemas/Budget"
+    put:
+      summary: "Update a budget by ID"
+      tags:
+        - "budget"
+      requestBody:
+        content:
+          'application/json':
+            schema:
+              "$ref": "#/components/schemas/Budget"
+      responses:
+        '204':
+          "$ref": "#/components/responses/NotContent"
+    delete:
+      summary: "Delete a budget by ID"
+      tags:
+        - "budget"
+      responses:
+        '204':
+          "$ref": "#/components/responses/NotContent"
+  
+components:
+  schemas:
+    Budget:
+      properties:
+        id:
+          type: string
+          readOnly: true
+        description:
+          type: string
+        type:
+          type: string
+      required:
+        - "description"
+        - "type"
+    GeneralError:
+      properties:
+        code:
+          type: integer
+        message:
+          type: string
+  responses:
+    NotContent:
+      description: 'Not Content.'
+    NotFound:
+      description: Entity not found.
+    InternalServerError:
+      description: Internal error in the server.
