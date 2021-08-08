@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node bin/www",
     "start:dev": "nodemon bin/www",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha 'tests/**/*.test.js' --recursive",
+    "test:cov": "nyc npm run test"
   },
   "author": "David Morales <morales.david1997@gmail.com>",
   "license": "ISC",
@@ -14,7 +15,9 @@
     "express": "^4.17.1"
   },
   "devDependencies": {
+    "chai": "^4.3.4",
     "mocha": "^9.0.3",
-    "nodemon": "^2.0.12"
+    "nodemon": "^2.0.12",
+    "nyc": "^15.1.0"
   }
 }
