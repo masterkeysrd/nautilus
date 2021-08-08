@@ -22,7 +22,9 @@ nvm use
 To run the project locally you need to install the dependencies and start the project. 
 ```shell
 npm i
-npm start
+npm start # to start the app in normal mode
+# or
+npm run start:dev # to start the app in development mode (with hot reload)
 ```
 
 ### Project setup (docker)
