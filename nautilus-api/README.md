@@ -39,3 +39,14 @@ docker run -p 8080:8080 nautilus-api
 ### Running Project
 
 By default the project will be running on http://localhost:8080/api.
+
+### Testing (local)
+
+To run the testings on the project we use [Mocha](https://mochajs.org/) as Test Framework and [Chai](https://www.chaijs.com/) as Assertion Framework with the Expect style and [nyc/istanbul](https://istanbul.js.org/) for code coverage. The commands we have configure are the following:
+
+```shell
+# run all of the tests
+npm test
+# run tests with code  coverage
+npm run test:cov
+```

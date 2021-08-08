@@ -7,7 +7,7 @@
     "start": "node bin/www",
     "start:dev": "nodemon bin/www",
     "test": "mocha 'tests/**/*.test.js' --recursive",
-    "test:cov": "nyc npm run test"
+    "test:cov": "nyc --reporter=html --reporter=text npm run test"
   },
   "author": "David Morales <morales.david1997@gmail.com>",
   "license": "ISC",
