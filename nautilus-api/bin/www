@@ -1,0 +1,35 @@
+#!/usr/bin/env node
+
+const app = require('../app');
+const http = require('http');
+const serverConfig = require('../config/server.config');
+
+const server = http.createServer(app);
+
+server.listen(serverConfig.port, serverConfig.host);
+
+server.on('error', (error) => {
+    if (error.syscall !== 'listen') throw error;
+
+    const getBindStr = (port) => typeof port === 'string' ? 'Pipe' : 'Port';
+    const bind = `${getBindStr(serverConfig.port)} ${serverConfig.port}`;
+
+    switch (error.code) {
+        case 'EACCES':
+            console.error(bind + ' requires elevated privileges');
+            process.exit(1);
+            break;
+        case 'EADDRINUSE':
+            console.error(bind + ' is already in use');
+            process.exit(1);
+            break;
+        default:
+            throw error;
+    }
+});
+
+server.on('listening', () => {
+    const address = server.address();
+    const bind = typeof address === 'string' ? `Pipe ${address}` : `Port ${address.port}`;
+    console.log(`Listening on ${bind}`)
+});
