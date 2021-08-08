@@ -38,4 +38,4 @@ docker run -p 8080:8080 nautilus-api
 
 ### Running Project
 
-By default the project will be running on http://localhost:8080.
+By default the project will be running on http://localhost:8080/api.

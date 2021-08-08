@@ -34,4 +34,4 @@ docker-compose down
 ### Services
 
 The services starts by default in the following addresses:
-* Nautilus-API - http://localhost:8080
+* Nautilus-API - http://localhost:8080/api
