@@ -1,0 +1,8 @@
+version: "3.9"
+
+services:
+    nautilus-api:
+        build:
+            context: nautilus-api 
+        ports: 
+            - "8080:8080"
