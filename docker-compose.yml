@@ -2,7 +2,18 @@ version: "3.9"
 
 services:
     nautilus-api:
+        container_name: nautilus-api
+        restart: always
         build:
-            context: nautilus-api 
+            context: nautilus-api
+        command: ["npm", "run", "start:dev"]
         ports: 
             - "8080:8080"
+        networks: 
+            - nautilus
+        volumes: 
+            - './nautilus-api/src/:/usr/app/src'
+
+networks:
+  nautilus:
+    driver: bridge
