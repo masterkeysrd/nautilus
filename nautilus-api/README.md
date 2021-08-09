@@ -40,7 +40,12 @@ docker run -p 8080:8080 nautilus-api
 
 ### Running Project
 
-By default the project will be running on http://localhost:8080/api.
+By default the project will be running on .
+
+|Service |URL  |
+--- | --- |
+|api|http://localhost:8080/api|
+|swagger/open-api|http://localhost:8080/api-docs|
 
 ### Testing (local)
 
@@ -52,3 +57,7 @@ npm test
 # run tests with code  coverage
 npm run test:cov
 ```
+
+### API Documentation
+
+To document the API we use [Open API Specification (OAS)](https://swagger.io/specification/#oas-document) and the swagger page is served in http://localhost:8080/api-docs.
