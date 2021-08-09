@@ -12,6 +12,7 @@
   "author": "David Morales <morales.david1997@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^10.0.0",
     "express": "^4.17.1"
   },
   "devDependencies": {
