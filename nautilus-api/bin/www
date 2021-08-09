@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+require('dotenv').config();
 const app = require('../app');
 const http = require('http');
 const serverConfig = require('../config/server.config');

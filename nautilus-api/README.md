@@ -19,6 +19,8 @@ To install and use the specified node and npm versions you need to run the `inst
 nvm install v14.17.4
 nvm use
 ```
+We use [dotenv](https://github.com/motdotla/dotenv) to map a `.env` file to environment variable in the project. To setup the project config please rename the [sample.env](sample.env) file to `.env` and set the proper configurations.
+
 To run the project locally you need to install the dependencies and start the project. 
 ```shell
 npm i
